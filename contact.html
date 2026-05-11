@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SYSOPS — Contacto</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="contacto.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="index.html">
+      <span class="bracket">[</span>SYSOPS<span class="bracket">]</span>
+    </a>
+    <nav class="header__nav">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#fundamentos">Tipos</a>
+      <a href="index.html#proceso">Proceso</a>
+      <a href="index.html#herramientas">Herramientas</a>
+      <a href="index.html#seguridad">Seguridad</a>
+      <a href="contacto.html" class="nav-contact">Contacto</a>
+    </nav>
+    <div class="header__status">
+      <span class="status-dot"></span>
+      <span>Sistema Activo</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="c-hero">
+  <div class="hero__grid"></div>
+  <div class="c-hero__inner">
+    <div class="hero__eyebrow"><span class="line"></span> SOPORTE · CONSULTAS · REPORTES <span class="line"></span></div>
+    <h1 class="c-hero__title">
+      <span>Contáctanos</span>
+      <span class="acc">Estamos</span>
+      <span class="outline">Disponibles</span>
+    </h1>
+    <p class="c-hero__desc">¿Tienes una incidencia o consulta técnica? Nuestro equipo de ingenieros está disponible <strong>24/7</strong> para atenderte con la prioridad que necesitas.</p>
+  </div>
+</section>
+
+<!-- CONTACTO PRINCIPAL -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="c-layout">
+
+      <!-- FORMULARIO -->
+      <div class="c-form-box">
+        <p class="s-label" style="margin-bottom:.4rem">// Enviar Mensaje</p>
+        <h2 class="s-title" style="margin-bottom:1.8rem">Formulario de <span class="acc">Contacto</span></h2>
+
+        <form class="cform" id="cform">
+          <div class="cform__row">
+            <div class="cform__group">
+              <label>Nombre completo</label>
+              <input type="text" placeholder="Tu nombre" required/>
+            </div>
+            <div class="cform__group">
+              <label>Correo electrónico</label>
+              <input type="email" placeholder="correo@empresa.com" required/>
+            </div>
+          </div>
+          <div class="cform__group">
+            <label>Tipo de solicitud</label>
+            <select required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Reporte de incidencia crítica</option>
+              <option>Solicitud de mantenimiento preventivo</option>
+              <option>Consulta técnica general</option>
+              <option>Auditoría de seguridad</option>
+              <option>Soporte de infraestructura</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="cform__row">
+            <div class="cform__group">
+              <label>Prioridad</label>
+              <select>
+                <option>🔴 Crítica — Servicio caído</option>
+                <option>🟠 Alta — Impacto severo</option>
+                <option selected>🟡 Media — Degradación</option>
+                <option>🟢 Baja — Sin impacto</option>
+              </select>
+            </div>
+            <div class="cform__group">
+              <label>Teléfono</label>
+              <input type="text" placeholder="+503 7000-0000"/>
+            </div>
+          </div>
+          <div class="cform__group">
+            <label>Sistema o servicio afectado</label>
+            <input type="text" placeholder="Ej: Servidor web, Base de datos, Red corporativa..."/>
+          </div>
+          <div class="cform__group">
+            <label>Descripción del problema</label>
+            <textarea rows="5" placeholder="Describe con detalle la incidencia, el sistema afectado y el impacto actual en la operación..." required></textarea>
+          </div>
+          <button type="button" class="btn btn--fill cform__btn" onclick="sendForm()">Enviar Solicitud →</button>
+          <div class="cform__ok" id="formOk">
+            <span>✓</span> ¡Solicitud enviada! El equipo responderá según el SLA definido.
+          </div>
+        </form>
+      </div>
+
+      <!-- LATERAL -->
+      <div class="c-side">
+
+        <div class="icard">
+          <div class="icard__ico" style="background:rgba(57,255,20,.1);border:1px solid rgba(57,255,20,.3)">📞</div>
+          <div>
+            <h3>Línea de Soporte 24/7</h3>
+            <p>+503 60763731</p>
+            <span>Incidencias críticas · Siempre disponible</span>
+          </div>
+        </div>
+
+        <div class="icard">
+          <div class="icard__ico" style="background:rgba(0,255,231,.1);border:1px solid rgba(0,255,231,.3)">📧</div>
+          <div>
+            <h3>Correo Técnico</h3>
+            <p>soporte@sysops.io</p>
+            <span>Respuesta en menos de 2 horas</span>
+          </div>
+        </div>
+
+        <div class="icard">
+          <div class="icard__ico" style="background:rgba(77,124,255,.1);border:1px solid rgba(77,124,255,.3)">💬</div>
+          <div>
+            <h3>Chat Interno</h3>
+            <p>Slack #soporte-ti</p>
+            <span>Equipo técnico siempre en línea</span>
+          </div>
+        </div>
+
+        <div class="icard">
+          <div class="icard__ico" style="background:rgba(232,255,0,.1);border:1px solid rgba(232,255,0,.3)">🏢</div>
+          <div>
+            <h3>Centro de Operaciones NOC</h3>
+            <p>Edificio TI, Piso 3</p>
+            <span>Lunes a Viernes 07:00 – 18:00</span>
+          </div>
+        </div>
+
+        <!-- SLA -->
+        <div class="sla-box">
+          <div class="sla-title"><span class="status-dot"></span> Tiempos de Respuesta SLA</div>
+          <div class="sla-row"><span class="sla-dot" style="background:#ff2d55;box-shadow:0 0 8px #ff2d55"></span><strong>Crítica</strong><span>15 minutos</span></div>
+          <div class="sla-row"><span class="sla-dot" style="background:#ff8c00;box-shadow:0 0 8px #ff8c00"></span><strong>Alta</strong><span>1 hora</span></div>
+          <div class="sla-row"><span class="sla-dot" style="background:#e8ff00;box-shadow:0 0 8px #e8ff00"></span><strong>Media</strong><span>2 horas</span></div>
+          <div class="sla-row"><span class="sla-dot" style="background:#39ff14;box-shadow:0 0 8px #39ff14"></span><strong>Baja</strong><span>8 horas</span></div>
+        </div>
+
+        <!-- Terminal estado -->
+        <div class="mini-term">
+          <div class="term__bar">
+            <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+            <span class="term__title">estado@sistemas</span>
+          </div>
+          <div class="term__body">
+            <p class="o g">✓ Web Server — OPERATIVO</p>
+            <p class="o g">✓ Base de Datos — OPERATIVO</p>
+            <p class="o g">✓ Red Interna — OPERATIVO</p>
+            <p class="o g">✓ Backups — OPERATIVO</p>
+            <p class="o g">✓ Firewall — OPERATIVO</p>
+            <p class="o" style="margin-top:.5rem;color:#3d5234">Última revisión: hace 5 min</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-num">02</span>
+      <div>
+        <p class="s-label">// Ubicación y Horarios</p>
+        <h2 class="s-title">Centro de <span class="acc">Operaciones NOC</span></h2>
+      </div>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map">
+        <div class="loc-map__inner">
+          <span style="font-size:3rem;display:block;margin-bottom:1rem">🗺️</span>
+          <p style="font-weight:700;color:#e8ffdf;margin-bottom:.3rem">Centro de Operaciones de Red</p>
+          <span style="font-family:'Space Mono',monospace;font-size:.65rem;color:#7a9970">Edificio TI · Piso 3 · San Salvador</span>
+        </div>
+      </div>
+      <div class="loc-info">
+        <div class="loc-item">
+          <span>📍</span>
+          <div><h4>Dirección</h4><p>Edificio Torre TI, Piso 3, Colonia Escalón, San Salvador, El Salvador</p></div>
+        </div>
+        <div class="loc-item">
+          <span>🕐</span>
+          <div><h4>Horario Presencial</h4><p>Lunes a Viernes: 07:00 – 18:00 · Sábado: 08:00 – 12:00</p></div>
+        </div>
+        <div class="loc-item">
+          <span>⚡</span>
+          <div><h4>Soporte Remoto</h4><p>Disponible 24 horas al día, los 365 días del año</p></div>
+        </div>
+        <div class="loc-item">
+          <span>🚨</span>
+          <div><h4>Emergencias</h4><p>Guardia nocturna activa · Respuesta en menos de 15 minutos</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="footer__logo"><span class="bracket">[</span>SYSOPS<span class="bracket">]</span></div>
+      <p>Mantenimiento y Aseguramiento del Sistema Informático</p>
+    </div>
+    <div class="footer__badges">
+      <span>ITIL v4</span><span>ISO/IEC 27001</span><span>ISO 20000</span><span>NIST CSF</span><span>CIS Controls</span>
+    </div>
+    <p class="footer__copy">Sistema Operativo · 24/7 · 365</p>
+  </div>
+</footer>
+
+<script>
+  function sendForm() {
+    const ok = document.getElementById('formOk');
+    ok.style.display = 'flex';
+    setTimeout(() => ok.style.opacity = '1', 10);
+    document.getElementById('cform').querySelectorAll('input,textarea,select').forEach(el => {
+      if (el.tagName !== 'SELECT') el.value = '';
+    });
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.icard,.loc-item').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

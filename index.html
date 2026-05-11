@@ -1,3 +1,494 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SYSOPS — Mantenimiento del Sistema Informático</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <canvas class="noise-canvas" id="noiseCanvas"></canvas>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__logo" href="#">
+        <span class="bracket">[</span>SYSOPS<span class="bracket">]</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#fundamentos">Fundamentos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#practicas">Prácticas</a>
+        <a href="contacto.html" class="nav-contact">Contacto</a>
+      </nav>
+      <div class="header__status">
+        <span class="status-dot"></span>
+        <span>Sistema Activo</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__grid"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <span class="ey-line"></span>
+        <span>SISTEMAS · INFRAESTRUCTURA · SEGURIDAD</span>
+        <span class="ey-line"></span>
+      </div>
+      <h1 class="hero__title">
+        <span>Mantenimiento</span>
+        <span class="acc">&amp; Aseguramiento</span>
+        <span>del Sistema</span>
+        <span class="outline">Informático</span>
+      </h1>
+      <p class="hero__desc">
+        Conjunto integral de estrategias, procedimientos técnicos y frameworks de gestión
+        orientados a garantizar la <strong>disponibilidad</strong>, <strong>integridad</strong>
+        y <strong>continuidad operativa</strong> de la infraestructura de TI en entornos de producción críticos.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--fill" href="#fundamentos">Explorar →</a>
+        <a class="btn btn--ghost" href="#proceso">Ver Proceso</a>
+      </div>
+      <div class="hero__metrics">
+        <div class="metric">
+          <span class="metric__val">99.9<em>%</em></span>
+          <span class="metric__lbl">Uptime objetivo</span>
+        </div>
+        <div class="metric-sep"></div>
+        <div class="metric">
+          <span class="metric__val">24<em>/7</em></span>
+          <span class="metric__lbl">Monitoreo</span>
+        </div>
+        <div class="metric-sep"></div>
+        <div class="metric">
+          <span class="metric__val">6</span>
+          <span class="metric__lbl">Tipos de mant.</span>
+        </div>
+        <div class="metric-sep"></div>
+        <div class="metric">
+          <span class="metric__val">ISO</span>
+          <span class="metric__lbl">27001 · 20000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__terminal">
+      <div class="term__bar">
+        <span class="t-dot dot-r"></span>
+        <span class="t-dot dot-y"></span>
+        <span class="t-dot dot-g"></span>
+        <span class="term__title">sysops@monitor:~</span>
+      </div>
+      <div class="term__body">
+        <p><span class="t-prompt">$</span> <span class="t-cmd">systemctl status sysops</span></p>
+        <p class="t-out">● sysops.service — Sistema Operativo</p>
+        <p class="t-out"><span class="t-green">   Active: active (running)</span> since Mon</p>
+        <p class="t-out">   CPU: 12% · MEM: 4.2GB / 16GB</p>
+        <p class="t-out">   DISK: 234GB / 1TB · TEMP: 42°C</p>
+        <br/>
+        <p><span class="t-prompt">$</span> <span class="t-cmd">tail -f /var/log/maintenance.log</span></p>
+        <p class="t-out">[OK] Backup completado — 02:00 UTC</p>
+        <p class="t-out">[OK] Parches aplicados — kernel 6.1.x</p>
+        <p class="t-out"><span class="t-green">[OK] Todos los servicios operativos</span></p>
+        <p class="t-out">[  ] Próx. mantenimiento: Dom 03:00</p>
+        <p class="t-cursor" id="tcursor">█</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNDAMENTOS -->
+  <section class="section" id="fundamentos">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <div>
+          <p class="sec-label">// Tipos de Mantenimiento</p>
+          <h2 class="sec-title">Fundamentos <span class="acc">Operativos</span></h2>
+        </div>
+      </div>
+      <p class="sec-intro">
+        El mantenimiento del sistema informático agrupa las acciones técnicas y administrativas
+        destinadas a conservar o restablecer un sistema en condiciones que le permitan realizar
+        su función requerida con los estándares de calidad definidos por el negocio.
+      </p>
+
+      <div class="cards-grid">
+        <article class="mcard mcard--1 reveal">
+          <div class="mcard__num">01</div>
+          <div class="mcard__icon">🛡️</div>
+          <h3 class="mcard__title">Preventivo</h3>
+          <p class="mcard__text">Actividades planificadas para evitar fallos futuros. Incluye limpieza de componentes, actualización de firmware, revisión de logs del sistema y diagnósticos de hardware antes de que ocurra un fallo.</p>
+          <div class="mcard__tags"><span>Periódico</span><span>Planificado</span><span>HW + SW</span></div>
+        </article>
+        <article class="mcard mcard--2 reveal">
+          <div class="mcard__num">02</div>
+          <div class="mcard__icon">🔧</div>
+          <h3 class="mcard__title">Correctivo</h3>
+          <p class="mcard__text">Intervención tras un fallo para restaurar el sistema. Puede ser inmediato en emergencias críticas o diferido cuando el fallo no impacta severamente la operación continua del negocio.</p>
+          <div class="mcard__tags"><span>Reactivo</span><span>Urgente</span><span>Restauración</span></div>
+        </article>
+        <article class="mcard mcard--3 reveal">
+          <div class="mcard__num">03</div>
+          <div class="mcard__icon">📡</div>
+          <h3 class="mcard__title">Predictivo</h3>
+          <p class="mcard__text">Monitorización continua para anticipar fallos. Analiza temperatura de CPU, uso de disco, latencia de red y patrones de logs para detectar anomalías antes de que impacten la operación.</p>
+          <div class="mcard__tags"><span>Métricas</span><span>IA/ML</span><span>Proactivo</span></div>
+        </article>
+        <article class="mcard mcard--4 reveal">
+          <div class="mcard__num">04</div>
+          <div class="mcard__icon">🚀</div>
+          <h3 class="mcard__title">Evolutivo</h3>
+          <p class="mcard__text">Mejoras que adaptan el sistema a nuevas necesidades del negocio o tecnológicas. Abarca migraciones de plataforma, escalabilidad y modernización de la arquitectura de TI existente.</p>
+          <div class="mcard__tags"><span>Mejora</span><span>Migración</span><span>Escala</span></div>
+        </article>
+        <article class="mcard mcard--5 reveal">
+          <div class="mcard__num">05</div>
+          <div class="mcard__icon">🔄</div>
+          <h3 class="mcard__title">Adaptativo</h3>
+          <p class="mcard__text">Modificaciones para mantener la operatividad ante cambios del entorno externo: nuevas versiones de SO, normativas legales, cambios regulatorios o migraciones de infraestructura a la nube.</p>
+          <div class="mcard__tags"><span>Entorno</span><span>Normativa</span><span>Cloud</span></div>
+        </article>
+        <article class="mcard mcard--6 reveal">
+          <div class="mcard__num">06</div>
+          <div class="mcard__icon">⚡</div>
+          <h3 class="mcard__title">Perfectivo</h3>
+          <p class="mcard__text">Mejora del rendimiento y usabilidad sin corregir errores. Optimiza consultas de BD, refactoriza código, mejora interfaces y aumenta la capacidad de procesamiento del sistema.</p>
+          <div class="mcard__tags"><span>Optimización</span><span>Rendimiento</span><span>UX</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO PDCA -->
+  <section class="section section--dark" id="proceso">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <div>
+          <p class="sec-label">// Ciclo PDCA</p>
+          <h2 class="sec-title">Proceso de <span class="acc">Aseguramiento</span></h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="tl-step reveal">
+          <div class="tl-marker tl-m1"><span>01</span></div>
+          <div class="tl-content">
+            <span class="tl-phase">PLANIFICAR</span>
+            <h3 class="tl-title">Evaluación y Plan de Mantenimiento</h3>
+            <p class="tl-desc">Inventariado completo de activos hardware y software, definición del alcance, establecimiento de SLAs, elaboración del calendario preventivo y asignación de responsabilidades al equipo técnico según competencias y especialidad.</p>
+            <div class="tl-checks"><span>✓ Inventario CMDB</span><span>✓ SLAs definidos</span><span>✓ Calendario aprobado</span></div>
+          </div>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-marker tl-m2"><span>02</span></div>
+          <div class="tl-content">
+            <span class="tl-phase">HACER</span>
+            <h3 class="tl-title">Ejecución de Actividades Técnicas</h3>
+            <p class="tl-desc">Aplicación de parches y actualizaciones en ventanas controladas. Limpieza física y lógica de sistemas. Configuración de backups automáticos. Despliegue de agentes de monitoreo en todos los nodos de la infraestructura de TI.</p>
+            <div class="tl-checks"><span>✓ Parches aplicados</span><span>✓ Backups activos</span><span>✓ Monitoreo desplegado</span></div>
+          </div>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-marker tl-m3"><span>03</span></div>
+          <div class="tl-content">
+            <span class="tl-phase">VERIFICAR</span>
+            <h3 class="tl-title">Monitoreo Continuo 24/7</h3>
+            <p class="tl-desc">Supervisión permanente de métricas clave: disponibilidad, rendimiento, seguridad y capacidad. Análisis de logs centralizado mediante SIEM. Respuesta temprana mediante protocolos de escalamiento y runbooks operativos documentados.</p>
+            <div class="tl-checks"><span>✓ SIEM activo</span><span>✓ Alertas configuradas</span><span>✓ Runbooks listos</span></div>
+          </div>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-marker tl-m4"><span>04</span></div>
+          <div class="tl-content">
+            <span class="tl-phase">RESPONDER</span>
+            <h3 class="tl-title">Gestión de Incidentes y DRP</h3>
+            <p class="tl-desc">Registro de incidencias en el sistema ITSM, clasificación por severidad y asignación al equipo competente. Activación de planes de recuperación ante desastres (DRP) cuando se supera el RTO o RPO definido para servicios críticos.</p>
+            <div class="tl-checks"><span>✓ Tickets ITSM</span><span>✓ DRP validado</span><span>✓ RTO/RPO medido</span></div>
+          </div>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-marker tl-m5"><span>05</span></div>
+          <div class="tl-content">
+            <span class="tl-phase">ACTUAR</span>
+            <h3 class="tl-title">Mejora Continua y Post-Mortem</h3>
+            <p class="tl-desc">Análisis de causa raíz (RCA) de incidencias mayores. Revisión de KPIs: MTTR, MTBF y disponibilidad real vs. objetivo. Actualización de procedimientos y documentación. Retroalimentación al plan para el siguiente ciclo PDCA.</p>
+            <div class="tl-checks"><span>✓ RCA completado</span><span>✓ KPIs revisados</span><span>✓ Plan actualizado</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HERRAMIENTAS -->
+  <section class="section" id="herramientas">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <div>
+          <p class="sec-label">// Software &amp; Utilidades</p>
+          <h2 class="sec-title">Arsenal de <span class="acc">Herramientas</span></h2>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">📊</span>
+            <div><h3 class="tool__name">Zabbix</h3><span class="tbadge b-mon">Monitoreo</span></div>
+          </div>
+          <p class="tool__desc">Plataforma open-source de monitoreo en tiempo real de redes, servidores y servicios con dashboards y alertas configurables para miles de métricas simultáneas.</p>
+          <div class="tool__plat"><span>Linux</span><span>Windows</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">🔔</span>
+            <div><h3 class="tool__name">Nagios</h3><span class="tbadge b-mon">Monitoreo</span></div>
+          </div>
+          <p class="tool__desc">Sistema de alertas e infraestructura de monitoreo IT adoptado en entornos empresariales críticos con plugins extensibles para cualquier servicio o protocolo.</p>
+          <div class="tool__plat"><span>Linux</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">⚙️</span>
+            <div><h3 class="tool__name">Ansible</h3><span class="tbadge b-auto">Automatización</span></div>
+          </div>
+          <p class="tool__desc">Automatización agentless para gestión de configuraciones, despliegues y tareas de mantenimiento masivo usando playbooks YAML declarativos y legibles por humanos.</p>
+          <div class="tool__plat"><span>Linux</span><span>macOS</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">💾</span>
+            <div><h3 class="tool__name">Veeam Backup</h3><span class="tbadge b-bkp">Respaldo</span></div>
+          </div>
+          <p class="tool__desc">Solución empresarial de backup y recuperación ante desastres para entornos físicos, virtuales y cloud con verificación automática de integridad de datos.</p>
+          <div class="tool__plat"><span>Windows</span><span>Linux</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">🌐</span>
+            <div><h3 class="tool__name">Wireshark</h3><span class="tbadge b-net">Red</span></div>
+          </div>
+          <p class="tool__desc">Analizador de protocolos de red líder en la industria. Captura y examina el tráfico en tiempo real con filtros BPF avanzados para diagnóstico preciso de problemas.</p>
+          <div class="tool__plat"><span>Multiplataforma</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">🗂️</span>
+            <div><h3 class="tool__name">GLPI</h3><span class="tbadge b-itsm">ITSM</span></div>
+          </div>
+          <p class="tool__desc">Sistema integrado de gestión de activos TI, inventario automatizado, tickets de soporte y CMDB. Base de datos de configuración para toda la infraestructura de TI.</p>
+          <div class="tool__plat"><span>Web</span><span>Linux</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">🔒</span>
+            <div><h3 class="tool__name">Nessus / OpenVAS</h3><span class="tbadge b-sec">Seguridad</span></div>
+          </div>
+          <p class="tool__desc">Escáner de vulnerabilidades que identifica configuraciones inseguras y CVEs en la red. Genera reportes priorizados por CVSS para plan de remediación efectivo.</p>
+          <div class="tool__plat"><span>Multiplataforma</span></div>
+        </div>
+        <div class="tool reveal">
+          <div class="tool__head">
+            <span class="tool__icon">📈</span>
+            <div><h3 class="tool__name">Grafana + Prometheus</h3><span class="tbadge b-obs">Observabilidad</span></div>
+          </div>
+          <p class="tool__desc">Stack moderno de observabilidad. Prometheus recopila métricas de series de tiempo y Grafana las visualiza en dashboards interactivos con alertas integradas y PromQL.</p>
+          <div class="tool__plat"><span>Linux</span><span>Docker</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURIDAD -->
+  <section class="section section--dark" id="seguridad">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <div>
+          <p class="sec-label">// Ciberseguridad</p>
+          <h2 class="sec-title">Pilares de <span class="acc">Seguridad</span></h2>
+        </div>
+      </div>
+
+      <div class="sec-grid">
+        <div class="pillar reveal">
+          <div class="pillar__icon pillar--blue">🔐</div>
+          <div class="pillar__body">
+            <h3>Control de Acceso e Identidad (IAM)</h3>
+            <p>Gestión basada en mínimo privilegio. MFA obligatorio en todos los accesos. Auditoría de sesiones privilegiadas (PAM) con registros inmutables. Revisión trimestral de cuentas activas e inactivas del directorio.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar__icon pillar--red">🛡️</div>
+          <div class="pillar__body">
+            <h3>Hardening de Sistemas</h3>
+            <p>Reducción de superficie de ataque mediante guías CIS Benchmarks. Deshabilitación de servicios y puertos no usados. Configuración segura según NIST SP 800-70. Auditoría automática con OpenSCAP en todos los servidores.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar__icon pillar--green">💾</div>
+          <div class="pillar__body">
+            <h3>Estrategia de Backup 3-2-1</h3>
+            <p>3 copias en 2 medios distintos con 1 copia fuera del sitio físico. Pruebas de restauración cada trimestre. RTO y RPO alineados a cada servicio crítico del negocio. Cifrado de backups en tránsito y en reposo.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar__icon pillar--yellow">🔍</div>
+          <div class="pillar__body">
+            <h3>Auditoría y Logs SIEM</h3>
+            <p>Centralización de logs con retención de 12 meses según normativa. Alertas automáticas ante accesos fallidos y cambios críticos de configuración. Correlación de eventos para detección de amenazas avanzadas persistentes.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar__icon pillar--purple">🌐</div>
+          <div class="pillar__body">
+            <h3>Seguridad de Red Perimetral</h3>
+            <p>Segmentación mediante VLANs y microsegmentación. Firewalls con reglas de mínimo acceso e IDS/IPS. Inspección de tráfico TLS/SSL. Control de acceso NAC para dispositivos no gestionados o no autorizados en la red.</p>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar__icon pillar--orange">📋</div>
+          <div class="pillar__body">
+            <h3>Gestión de Vulnerabilidades</h3>
+            <p>Ciclo continuo: escaneo, evaluación CVSS, priorización y remediación verificada. Parches críticos (CVSS ≥ 9.0) en menos de 72 horas. Suscripción a boletines NVD/CVE y reportes semanales del estado de exposición.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUENAS PRÁCTICAS -->
+  <section class="section" id="practicas">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <div>
+          <p class="sec-label">// ITIL v4 · ISO 27001 · NIST</p>
+          <h2 class="sec-title">Mejores <span class="acc">Prácticas</span></h2>
+        </div>
+      </div>
+
+      <div class="prac-grid">
+        <div class="prac prac--big reveal">
+          <span class="prac__n">01</span>
+          <h3>Documentación continua</h3>
+          <p>Documentar todos los procedimientos en una base de conocimiento centralizada. Mantener actualizada la documentación de arquitectura, runbooks y procesos de recuperación. Sin documentación, el conocimiento es un punto único de falla organizacional.</p>
+        </div>
+        <div class="prac reveal">
+          <span class="prac__n">02</span>
+          <h3>Ventanas de mantenimiento</h3>
+          <p>Programar intervenciones en horarios de baja demanda. Notificar con 48 horas de anticipación y tener un plan de rollback preparado y probado.</p>
+        </div>
+        <div class="prac reveal">
+          <span class="prac__n">03</span>
+          <h3>Gestión de cambios (CAB)</h3>
+          <p>Ningún cambio en producción sin pasar por Change Management. Revisión por el Change Advisory Board para cambios de alto impacto en servicios críticos.</p>
+        </div>
+        <div class="prac prac--big reveal">
+          <span class="prac__n">04</span>
+          <h3>Pruebas de recuperación</h3>
+          <p>Pruebas de restauración de backups al menos trimestralmente. Un backup no verificado no es confiable. Simular escenarios de desastre para validar el DRP completo al menos una vez al año con métricas de tiempo reales.</p>
+        </div>
+        <div class="prac reveal">
+          <span class="prac__n">05</span>
+          <h3>Alertas al 80% de capacidad</h3>
+          <p>El 80% de CPU, disco o memoria es señal de acción inmediata. La anticipación evita la degradación del servicio antes de que el usuario lo perciba.</p>
+        </div>
+        <div class="prac reveal">
+          <span class="prac__n">06</span>
+          <h3>Segregación de entornos</h3>
+          <p>Mantener entornos separados: desarrollo, staging y producción. Nunca probar directamente en producción. Los entornos deben ser similares para evitar sorpresas al desplegar.</p>
+        </div>
+        <div class="prac reveal">
+          <span class="prac__n">07</span>
+          <h3>Redundancia en componentes</h3>
+          <p>RAID para discos, dobles fuentes de poder, enlaces de red redundantes y clústeres de alta disponibilidad. Eliminar todo SPOF en servicios críticos del negocio.</p>
+        </div>
+        <div class="prac prac--big reveal">
+          <span class="prac__n">08</span>
+          <h3>Automatización de tareas</h3>
+          <p>Usar Ansible, Puppet o scripts para automatizar tareas repetitivas de mantenimiento. La automatización reduce el error humano, aumenta la consistencia y libera tiempo del equipo técnico para trabajo de mayor valor estratégico para el negocio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo"><span class="bracket">[</span>SYSOPS<span class="bracket">]</span></div>
+        <p>Mantenimiento y Aseguramiento del Sistema Informático</p>
+      </div>
+      <div class="footer__standards">
+        <span>ITIL v4</span>
+        <span>ISO/IEC 27001</span>
+        <span>ISO 20000</span>
+        <span>NIST CSF</span>
+        <span>CIS Controls</span>
+      </div>
+      <p class="footer__copy">Sistema Operativo · 24/7 · 365</p>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor
+    const cur = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a,button,.mcard,.tool,.pillar,.prac').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('big'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+    });
+
+    // Noise canvas
+    const canvas = document.getElementById('noiseCanvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+    function noise() {
+      const d = ctx.createImageData(canvas.width, canvas.height);
+      for (let i = 0; i < d.data.length; i += 4) {
+        const v = Math.random() * 255;
+        d.data[i] = d.data[i+1] = d.data[i+2] = v; d.data[i+3] = 9;
+      }
+      ctx.putImageData(d, 0, 0);
+      setTimeout(noise, 80);
+    }
+    noise();
+
+    // Terminal cursor blink
+    const tc = document.getElementById('tcursor');
+    setInterval(() => tc.style.opacity = tc.style.opacity === '0' ? '1' : '0', 500);
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
+<
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,3 +502,4 @@
     
 </body>
 </html>
+>>>>>>> 41b49b69c0354c8190724cf84a0e21ed7cc704de
